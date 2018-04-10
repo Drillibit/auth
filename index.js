@@ -8,8 +8,10 @@ const keys = require('./config/keys');
 const app = express();
 
 
-// mongoose.Promise = global.Promise;
-// mongoose.connect()
+mongoose.Promise = global.Promise;
+mongoose.connect(keys.mongoURI)
+    .then(() => console.log('MongoDB connected...'))
+    .catch(err => console.log(err));
 
 app.use(bodyParser.json());
 
