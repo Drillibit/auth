@@ -1,2 +1,2 @@
 # auth
-Authentication with react/node/mongoose
+Authentication with react/redux/node/mongoose
