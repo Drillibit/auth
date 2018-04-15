@@ -1,36 +1,36 @@
-import { isMaster } from 'cluster';
-
+const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 const User = mongoose.model('users');
 
-module.exports = (passport) => {
-    passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
-        User.findOne({
-            email
-        }).then(user => {
-            if (!user) {
-                return done(null, false, { message: 'No User found' });
-            }
-            bcrypt.compare(password, user.password, (err, isMatch) => {
-                if (err) throw err;
-                if (isMatch) {
-                    return done(null, user);
-                } else {
-                    return done(null, false, { message: 'Password Incorrect' });
-                }
-            });
-        })
-    }));
-    passport.serializeUser(function (user, done) {
-        done(null, user.id);
-    });
 
-    passport.deserializeUser(function (id, done) {
-        User.findById(id, function (err, user) {
-            done(err, user);
-        });
+passport.serializeUser((user, done) => {
+    done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+    User.findById(id, (err, user) => {
+        done(err, user);
     });
-}
+});
+  passport.use(new LocalStrategy(
+      (username, password, done) => {
+          User.findOne({ 
+              name: name 
+            }).then(user => {
+                if (!user) {
+                    return done(null, false, {message: 'User is not found!'});
+                }
+                bcrypt.compare(password, user.password, (err, isMatch) => {
+                    if(err) throw err;
+                    if(isMatch){
+                        return done(null, user);
+                    } else {
+                        return done(null, false, {message: 'Password incorrect'});
+                    }
+                })
+            });
+      }
+  ));
