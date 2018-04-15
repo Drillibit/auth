@@ -18,7 +18,7 @@ passport.deserializeUser((id, done) => {
   passport.use(new LocalStrategy(
       (username, password, done) => {
           User.findOne({ 
-              name: name 
+              username: username 
             }).then(user => {
                 if (!user) {
                     return done(null, false, {message: 'User is not found!'});

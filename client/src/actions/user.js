@@ -1,20 +1,20 @@
 import axios from 'axios';
 
-export const addUser = user => {
+export const addUser = (user) => ({
     type: 'ADD_USER',
     user
-};
+});
 
 export const StartAddUser = (userData = {}) => {
     return async (dispatch) => {
         const {
-            name = '',
+            username = '',
             email = '',
             password = '',
             status = ''
         } = userData;
         const user = {
-            name,
+            username,
             email,
             password,
             status

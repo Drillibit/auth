@@ -16,7 +16,7 @@ module.exports = (app) => {
     });
     app.post('/api/users/register', (req, res) => {
         const user = new User({
-            name: req.body.name,
+            username: req.body.username,
             email: req.body.email,
             password: req.body.password,
             status: req.body.status
