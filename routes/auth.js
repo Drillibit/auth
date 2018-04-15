@@ -11,7 +11,7 @@ module.exports = (app) => {
         passport.authenticate('local', {
             successRedirect: '/home',
             failureRedirect: '/',
-            failureFlash: true
+            failureFlash: false
         })(req, res, next);
     });
     app.post('/api/users/register', (req, res) => {
@@ -30,5 +30,9 @@ module.exports = (app) => {
                     })
             });
         });
+    });
+
+    app.get('/api/current_user', (req, res) => {
+        res.send(req.user);
     });
 };

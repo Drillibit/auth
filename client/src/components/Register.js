@@ -6,6 +6,7 @@ import RegisterForm from './RegisterForm';
 const Register = (props) => {
     return (
         <div>
+            <h1>Register</h1>
             <RegisterForm 
                 onSubmit={(user) => {
                     props.dispatch(StartAddUser(user));
