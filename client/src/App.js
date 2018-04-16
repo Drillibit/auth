@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+//data
+import * as actions from './actions/fetchData';
 //components
 import Menu from './components/Menu';
 import Login from './components/Login';
 import Register from './components/Register';
 
 class App extends Component {
+  componentDidMount(){
+    this.props.fetchData();
+  }
   render() {
     return (
       <Router>
@@ -22,4 +28,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(null, actions)(App);

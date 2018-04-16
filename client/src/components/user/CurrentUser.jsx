@@ -2,13 +2,22 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const CurrentUser = (props) => {
-    console.log(props);
-    return (
-        <div>
-            <p>Name: {props.users.username || 'no'}</p>
-            <p>Email: {props.users.email || 'no'}</p>
-        </div>
-    );
+    let user = props.users[0];
+    if(!user){
+        return (
+            <div>
+                <p>You are not logged in</p>
+            </div>
+        );
+    } else {
+        return (
+            <div>
+                <p>Name: {user["username"]}</p>
+                <p>Email: {user["email"]}</p>
+            </div>
+        );
+    }
+
 };
 
 const mapStateToProps = (state) => {

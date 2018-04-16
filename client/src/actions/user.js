@@ -34,15 +34,17 @@ export const StartLoginUser = (userLog = {}) => {
             username,
             password
         };
-        let userLog = await Promise.all([
-            axios.post('/api/users/login', user),
-            await axios.get('/api/current_user')
-        ]);
-        let currentUser = Object.values(currentUser[1].data);
-        dispatch(addUser({...currentUser.data }));
-        // let res = await axios.post('/api/users/login', user);
-        // let currentUser = await axios.get('/api/current_user');
-        // dispatch(addUser({ ...curr.data }));
+        // let userLoggedData = await Promise.all([
+        //     axios.post('/api/users/login', user),
+        //     axios.get('/api/current_user')
+        // ]);
+        // console.log(userLoggedData);
+        // let currentUser = Object.values(userLoggedData[1]);
+        // console.log(currentUser.data)
+        // dispatch(addUser({...currentUser.data }));
+        await axios.post('/api/users/login', user);
+        let currentUser = await axios.get('/api/current_user');
+        dispatch(addUser({ ...currentUser.data }));
     };
 };
 

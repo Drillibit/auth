@@ -1,7 +1,7 @@
 import React from 'react';
 
 const RenderInfo = (props) => {
-    let info = props.state;
+    let info = props.state;    
     return (
         <div>
             <p>Name {info.username}</p>
