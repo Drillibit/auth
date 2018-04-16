@@ -9,8 +9,8 @@ const User = mongoose.model('users');
 module.exports = (app) => {
     app.post('/api/users/login', (req, res, next) => {
         passport.authenticate('local', {
-            successRedirect: '/home',
-            failureRedirect: '/',
+            successRedirect: '/',
+            failureRedirect: '/register',
             failureFlash: false
         })(req, res, next);
     });
@@ -33,6 +33,12 @@ module.exports = (app) => {
     });
 
     app.get('/api/current_user', (req, res) => {
+        console.log(`from auth  ${req.user}`)
         res.send(req.user);
+    });
+
+    app.get('/api/logout', (req, res) => {
+        req.logout();
+        res.redirect('/');
     });
 };

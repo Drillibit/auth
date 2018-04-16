@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { StartLoginUser } from '../actions/user';
 
 class Login extends Component {
     constructor(props){
@@ -19,6 +20,12 @@ class Login extends Component {
     };
     onSubmit = (e) => {
         e.preventDefault();
+        const user = {
+            username: this.state.username,
+            password: this.state.password
+        };
+        this.props.dispatch(StartLoginUser( user ));
+        console.log(user);
     };
     render(){
         return(
@@ -44,4 +51,10 @@ class Login extends Component {
     };
 };
 
-export default Login;
+const mapStateToProps = (state) => {
+    return {
+        users: state.users
+    }
+}
+
+export default connect(mapStateToProps)(Login);

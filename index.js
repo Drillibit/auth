@@ -3,23 +3,22 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const cookieSession = require('cookie-session');
+require('./utils/passport');
 
 const keys = require('./config/keys');
-
-const app = express();
-
 
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI)
     .then(() => console.log('MongoDB connected...'))
     .catch(err => console.log(err));
 
-app.use(bodyParser.json());
+const app = express();
 
+app.use(bodyParser.json());
 app.use(
     cookieSession({
         maxAge: 30 * 24 * 60 * 60 * 1000,
-        keys: 'keyboaedsacasxscie'
+        keys: ['ewfwrferw']
     })
 );
 app.use(passport.initialize());

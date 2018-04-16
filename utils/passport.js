@@ -2,6 +2,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+require('../models/user');
 
 const User = mongoose.model('users');
 
@@ -17,18 +18,23 @@ passport.deserializeUser((id, done) => {
 });
   passport.use(new LocalStrategy(
       (username, password, done) => {
+          console.log(`username ${username} and ${password}`);
           User.findOne({ 
               username: username 
             }).then(user => {
+                console.log(user);
                 if (!user) {
-                    return done(null, false, {message: 'User is not found!'});
+                    console.log('NO!');
+                    return done(null, false);
                 }
                 bcrypt.compare(password, user.password, (err, isMatch) => {
                     if(err) throw err;
                     if(isMatch){
+                        console.log(`here is the user ${user}`)
                         return done(null, user);
                     } else {
-                        return done(null, false, {message: 'Password incorrect'});
+                        console.log('wrin')
+                        return done(null, false);
                     }
                 })
             });
