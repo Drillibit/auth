@@ -1,33 +1,27 @@
 import axios from 'axios';
 
-export const addBranch = (branch) => ({
-    type: 'ADD_BRANCH',
-    branch
+export const addMaterial = (material) => ({
+    type: 'ADD_MATERIAL',
+    material
 });
 
-export const startAddBranch = (branchData = {}) => {
+export const startAddMaterial = (materialData = {}) => {
     return async (dispatch) => {
         const {
-            branchName = '',
-            anglePrice = 0,
-            cutPrice = 0,
-            customStitch = 0,
-            stitchAlignment = 0,
-            multiMaterial = 0,
-            curvePrice = 0,
-            packPrice = 0
-        } = branchData;
-        const branch = {
-            branchName,
-            anglePrice,
-            cutPrice,
-            customStitch,
-            stitchAlignment,
-            multiMaterial,
-            curvePrice,
-            packPrice
+            branch = '',
+            name = '',
+            price = 0,
+            priceGold = 0,
+            pricePlatinum = 0
+        } = materialData;
+        const material = {
+            branch,
+            name,
+            price,
+            priceGold,
+            pricePlatinum
         };
-        let res = await axios.post('/api/branch', branch);
-        dispatch(addBranch({ ...res.data }));
+        let res = await axios.post('/api/materials', material);
+        dispatch(addMaterial({ ...res.data }));
     };
 };

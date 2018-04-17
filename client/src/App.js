@@ -8,6 +8,7 @@ import * as actions from './actions/fetchData';
 import Menu from './components/Menu';
 import Login from './components/Login';
 import Register from './components/Register';
+import SingleBranch from './components/branch/SingleBranch';
 
 class App extends Component {
   componentDidMount(){
@@ -21,6 +22,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Login} />
             <Route path="/register" component={Register} />
+            <Route path="/branch/:id" component={SingleBranch} />
           </Switch>
         </div>
       </Router>
