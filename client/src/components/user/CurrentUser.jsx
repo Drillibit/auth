@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const CurrentUser = (props) => {
-    let user = props.users[0];
+    const user = props.users[0];
     if(!user){
         return (
             <div>
@@ -12,8 +12,8 @@ const CurrentUser = (props) => {
     } else {
         return (
             <div>
-                <p>Name: {user["username"]}</p>
-                <p>Email: {user["email"]}</p>
+                <p>Name: {user.username}</p>
+                <p>Email: {user.email}</p>
             </div>
         );
     }
