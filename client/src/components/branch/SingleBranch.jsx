@@ -17,14 +17,22 @@ class SingleBranch extends Component {
             result: 0
         };
     };
-    onDiscountChange = (e) => {
-        const discount = e.target.value;
-        this.setState(() => ({ discount }));
+    handleInputChange = (e) => {
+        const target = e.target;
+        const value = target.type === 'radio' ? target.value : target.checked;
+        const name = target.name;
+        this.setState({ 
+            [name]: value
+        });
     };
-    onMaterialChange = (e) => {
-        const material = e.target.value;
-        this.setState(() => ({ material }));
-    };
+    // onDiscountChange = (e) => {
+    //     const discount = e.target.value;
+    //     this.setState(() => ({ discount }));
+    // };
+    // onMaterialChange = (e) => {
+    //     const material = e.target.value;
+    //     this.setState(() => ({ material }));
+    // };
     onSpaceChange = (e) => {
         const space = e.target.value;
         this.setState(() => ({ space }));
@@ -87,24 +95,27 @@ class SingleBranch extends Component {
                                 <div className="group">
                                     <label>Обычный</label>
                                     <input
+                                        name="discount"
                                         type="radio"
                                         value="price"
-                                        checked={this.state.discount === 'price'}
-                                        onChange={this.onDiscountChange}
+                                        checked={this.state.discount === "price"}
+                                        onChange={this.handleInputChange}
                                     />
                                     <label>Золото</label>
                                     <input
+                                        name="discount"
                                         type="radio"
                                         value="priceGold"
-                                        checked={this.state.discount === 'priceGold'}
-                                        onChange={this.onDiscountChange}
+                                        checked={this.state.discount === "priceGold"}
+                                        onChange={this.handleInputChange}
                                     />
                                     <label>Платина</label>
                                     <input
+                                        name="discount"
                                         type="radio"
                                         value="pricePlatinum"
-                                        checked={this.state.discount === 'pricePlatinum'}
-                                        onChange={this.onDiscountChange}
+                                        checked={this.state.discount === "pricePlatinum"}
+                                        onChange={this.handleInputChange}
                                     />
                                 </div>
                                 <div className="group">
