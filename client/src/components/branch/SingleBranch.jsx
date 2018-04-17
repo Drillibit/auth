@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { calculate } from './calculate';
 
 class SingleBranch extends Component {
     constructor(props) {
@@ -29,10 +30,10 @@ class SingleBranch extends Component {
     //     const discount = e.target.value;
     //     this.setState(() => ({ discount }));
     // };
-    // onMaterialChange = (e) => {
-    //     const material = e.target.value;
-    //     this.setState(() => ({ material }));
-    // };
+    onMaterialChange = (e) => {
+        const material = e.target.value;
+        this.setState(() => ({ material }));
+    };
     onSpaceChange = (e) => {
         const space = e.target.value;
         this.setState(() => ({ space }));
@@ -63,23 +64,9 @@ class SingleBranch extends Component {
     };
     handleSubmit = (e) => {
         const data = { ...this.props.location.state };
+        const state = this.state;
         e.preventDefault();
-        let raw = parseFloat(this.state.space) * parseFloat(this.state.material);
-        // let angleSum = this.state.angle * data.anglePrice;
-        let angleSum = (this.state.angle > 4) ? ((this.state.angle - 4) * data.anglePrice) : 0;
-
-        let customStitch = this.state.customStitch === "yes" ? data.customStitch : 0;
-        let stitchAlignment = this.state.stitchAlignment === "yes" ? data.stitchAlignment : 0;
-        let multiMaterial = this.state.multiMaterial === "yes" ? data.multiMaterial : 0;
-
-        let additional = raw + ((raw * (customStitch / 100)) + (raw * (stitchAlignment / 100)) + (raw * (multiMaterial / 100)));
-        let cut = this.state.cut * data.cutPrice;
-        let curve = this.state.curve * data.curvePrice;
-        let res = additional + angleSum + cut + curve + data.packPrice;
-        console.log(res);
-        let result = Math.ceil(parseFloat(res));
-        console.log(result);
-        this.setState(() => ({ result }));
+        this.setState(() => ({ result: calculate(data, state) }));
     };
 
     render() {
