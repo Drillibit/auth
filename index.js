@@ -24,7 +24,11 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+// Routes
 require('./routes/auth')(app);
+require('./routes/materials')(app);
+require('./routes/branches')(app);
 
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'));
