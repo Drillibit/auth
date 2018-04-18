@@ -46,37 +46,42 @@ class Form extends Component {
             <div>
                 {this.state.error && <p>{this.state.error}</p>}
                 <form onSubmit={this.onSubmit}>
-                    <select value={this.state.branch} onChange={this.onBranchChange}>
+                    <select name="branch" value={this.state.branch} onChange={this.handleInputChange}>
                         <option>Выберите город</option>
+                        <option value="all">Все города</option>
                         {this.props.data.map((branch) => {
                             return <option key={branch._id} value={branch.branchName}>{branch.branchName}</option>;
                         })}
                     </select>
                     <input
+                        name="name"
                         type="text"
                         placeholder="Название материала"
                         autoFocus
                         value={this.state.name}
-                        onChange={this.onNameChange}
+                        onChange={this.handleInputChange}
                     />
                     <div>
                         <input
+                            name="price"
                             type="number"
                             placeholder="Цена"
                             value={this.state.price}
-                            onChange={this.onPriceChange}
+                            onChange={this.handleInputChange}
                         />
                         <input
+                            name="priceGold"
                             type="number"
                             placeholder="Золото"
                             value={this.state.priceGold}
-                            onChange={this.onPriceGoldChange}
+                            onChange={this.handleInputChange}
                         />
                         <input
+                            name="pricePlatinum"
                             type="number"
                             placeholder="Платина"
                             value={this.state.pricePlatinum}
-                            onChange={this.onPricePlatinumChange}
+                            onChange={this.handleInputChange}
                         />
                     </div>
                     <button>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Loadable from 'react-loadable';
 import './App.css';
 //data
 import * as actions from './actions/fetchData';
@@ -11,6 +12,13 @@ import Register from './components/Register';
 import SingleBranch from './components/branch/SingleBranch';
 
 import MaterialFormMain from './components/MaterialForm/MaterialFormMain';
+
+const Loading = () => <div>Loading...</div>;
+
+const BranchFormMain = Loadable({
+  loader: () => import('./components/BranchForm/BranchFormMain'),
+  loading: Loading
+});
 
 class App extends Component {
   componentDidMount(){
@@ -26,6 +34,7 @@ class App extends Component {
             <Route path="/register" component={Register} />
             <Route path="/branch/:id" component={SingleBranch} />
             <Route path="/add_material" component={MaterialFormMain} />
+            <Route path="/add_branch" component={BranchFormMain} />
           </Switch>
         </div>
       </Router>

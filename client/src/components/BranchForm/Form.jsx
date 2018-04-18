@@ -16,41 +16,13 @@ class Form extends Component {
             error: ''
         };
     }
-    onPackPriceChange = (e) => {
-        const packPrice = e.target.value;
-        this.setState(() => ({ packPrice }));
-    }
-    onCurvePriceChange = (e) => {
-        const curvePrice = e.target.value;
-        this.setState(() => ({ curvePrice }));
-    }
-    onMultiMaterialChange = (e) => {
-        const multiMaterial = e.target.value;
-        this.setState(() => ({ multiMaterial }));
-    };
-
-    onStitchAlignMentChange = (e) => {
-        const stitchAlignment = e.target.value;
-        this.setState(() => ({ stitchAlignment }));
-    };
-
-    onCustomStitchChange = (e) => {
-        const customStitch = e.target.value;
-        this.setState(() => ({ customStitch }));
-    };
-
-    onCutPriceChange = (e) => {
-        const cutPrice = e.target.value;
-        this.setState(() => ({ cutPrice }));
-    };
-
-    onAnglePriceChange = (e) => {
-        const anglePrice = e.target.value;
-        this.setState(() => ({ anglePrice }));
-    };
-    onBranchNameChange = (e) => {
-        const branchName = e.target.value;
-        this.setState(() => ({ branchName }));
+    handleInputChange = (e) => {
+        const target = e.target;
+        const value = target.value;
+        const name = target.name;
+        this.setState({
+            [name]: value
+        });
     };
     onSubmit = (e) => {
         e.preventDefault();
@@ -93,76 +65,84 @@ class Form extends Component {
                     <div>
                         <label>Город</label>
                         <input
+                            name="branchName"
                             type="text"
                             placeholder="Город"
                             autoFocus
                             value={this.state.branchName}
-                            onChange={this.onBranchNameChange}
+                            onChange={this.handleInputChange}
                         />
                     </div>
                     <div>
                         <label>Стоимость угла</label>
                         <input
+                            name="anglePrice"
                             type="number"
                             placeholder="Стоимость доп угла"
                             value={this.state.anglePrice}
-                            onChange={this.onAnglePriceChange}
+                            onChange={this.handleInputChange}
                         />
                     </div>
                     <div>
                         <label>Стоимость Выреза</label>
                         <input
+                            name="cutPrice"
                             type="number"
                             placeholder="Вырез"
                             value={this.state.cutPrice}
-                            onChange={this.onCutPriceChange}
+                            onChange={this.handleInputChange}
                         />
                     </div>
                     <div>
                         <label>Стоимость Упаковки</label>
                         <input
+                            name="packPrice"
                             type="number"
                             placeholder="Упаковка"
                             value={this.state.packPrice}
-                            onChange={this.onPackPriceChange}
+                            onChange={this.handleInputChange}
                         />
                     </div>
                     <div>
                         <label>Стоимость Кривой</label>
                         <input
+                            name="curvePrice"
                             type="number"
                             placeholder="Кривая"
                             value={this.state.curvePrice}
-                            onChange={this.onCurvePriceChange}
+                            onChange={this.handleInputChange}
                         />
                     </div>
                     <div>
                         <label>Стоимость заданного шва</label>
                         <input
+                            name="customStitch"
                             type="number"
                             placeholder="Заданный шов"
                             value={this.state.customStitch}
-                            onChange={this.onCustomStitchChange}
+                            onChange={this.handleInputChange}
                         />
                         <span>%</span>
                     </div>
                     <div>
                         <label>Стоимость центровки швов</label>
                         <input
+                            name="stitchAlignment"
                             type="number"
                             placeholder="Центровка швов"
                             value={this.state.stitchAlignment}
-                            onChange={this.onStitchAlignMentChange}
+                            onChange={this.handleInputChange}
                         />
                         <span>%</span>
                     </div>
                     <div>
                         <label>Стоимость многофактурности</label>
                         <input
+                            name="multiMaterial"
                             type="number"
                             placeholder="Многофактурность"
                             value={this.state.multiMaterial}
-                            onChange={this.onMultiMaterialChange}
+                            onChange={this.handleInputChange}
                         />
                         <span>%</span>
                     </div>
