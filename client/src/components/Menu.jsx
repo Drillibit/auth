@@ -8,6 +8,7 @@ const Menu = (props) => {
         <nav>
             <Link to="/">Home</Link>
             <Link to="/register">Register</Link>
+            <Link to="/add_material">Add Materials</Link>
             <CurrentUser />
             <Branches />
         </nav>

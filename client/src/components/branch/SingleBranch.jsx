@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { calculate } from './calculate';
 
 class SingleBranch extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -20,47 +21,11 @@ class SingleBranch extends Component {
     };
     handleInputChange = (e) => {
         const target = e.target;
-        const value = target.type === 'radio' ? target.value : target.checked;
+        const value = target.value;
         const name = target.name;
         this.setState({ 
             [name]: value
         });
-    };
-    // onDiscountChange = (e) => {
-    //     const discount = e.target.value;
-    //     this.setState(() => ({ discount }));
-    // };
-    onMaterialChange = (e) => {
-        const material = e.target.value;
-        this.setState(() => ({ material }));
-    };
-    onSpaceChange = (e) => {
-        const space = e.target.value;
-        this.setState(() => ({ space }));
-    };
-    onMultiMaterialChange = (e) => {
-        const multiMaterial = e.target.value;
-        this.setState(() => ({ multiMaterial }));
-    };
-    onStitchAlignmentChange = (e) => {
-        const stitchAlignment = e.target.value;
-        this.setState(() => ({ stitchAlignment }));
-    };
-    onCustomStitchChange = (e) => {
-        const customStitch = e.target.value;
-        this.setState(() => ({ customStitch }));
-    };
-    onCutChange = (e) => {
-        const cut = e.target.value;
-        this.setState(() => ({ cut }));
-    };
-    onCurveChange = (e) => {
-        const curve = e.target.value;
-        this.setState(() => ({ curve }));
-    };
-    onAngleChange = (e) => {
-        const angle = e.target.value;
-        this.setState(() => ({ angle }));
     };
     handleSubmit = (e) => {
         const data = { ...this.props.location.state };
@@ -106,7 +71,10 @@ class SingleBranch extends Component {
                                     />
                                 </div>
                                 <div className="group">
-                                    <select value={this.state.material} onChange={this.onMaterialChange}>
+                                    <select
+                                        name="material" 
+                                        value={this.state.material} 
+                                        onChange={this.handleInputChange}>
                                         <option value="0">Выберете материал</option>
                                         {this.props.materials.map((material) => {
                                             return (material.branch === data.branchName) ? (<option
@@ -127,80 +95,91 @@ class SingleBranch extends Component {
                                 <div className="group">
                                     <label>Площадь</label>
                                     <input
+                                        required
+                                        name="space"
                                         type="text"
                                         placeholder="площадь"
                                         value={this.state.space}
-                                        onChange={this.onSpaceChange}
+                                        onChange={this.handleInputChange}
                                     />
                                     <label>Углы</label>
                                     <input
+                                        name="angles"
                                         type="text"
                                         placeholder="углы"
                                         value={this.state.angles}
-                                        onChange={this.onAngleChange}
+                                        onChange={this.handleInputChange}
                                     />
                                 </div>
 
                                 <div className="group">
                                     <label>Кривая {data.curvePrice}:</label>
                                     <input
+                                        name="curve"
                                         type="number"
                                         value={this.state.curve}
-                                        onChange={this.onCurveChange}
+                                        onChange={this.handleInputChange}
                                     />
                                 </div>
 
                                 <div className="group">
                                     <label>Вырез {data.cutPrice}:</label>
                                     <input
+                                        name="cut"
                                         type="number"
                                         value={this.state.cut}
-                                        onChange={this.onCutChange}
+                                        onChange={this.handleInputChange}
                                     />
                                 </div>
                                 <div className="group">
                                     <label>Заданный шов {data.customStitch}:</label>
                                     <input
+                                        name="customStitch"
                                         type="radio"
                                         value="no"
                                         checked={this.state.customStitch === "no"}
-                                        onChange={this.onCustomStitchChange}
+                                        onChange={this.handleInputChange}
                                     />
                                     <input
+                                        name="customStitch"
                                         type="radio"
                                         value="yes"
                                         checked={this.state.customStitch === "yes"}
-                                        onChange={this.onCustomStitchChange}
+                                        onChange={this.handleInputChange}
                                     />
                                 </div>
                                 <div className="group">
                                     <label>Центровка швов {data.stitchAlignment}:</label>
                                     <input
+                                        name="stitchAlignment"
                                         type="radio"
                                         value="no"
                                         checked={this.state.stitchAlignment === "no"}
-                                        onChange={this.onStitchAlignmentChange}
+                                        onChange={this.handleInputChange}
                                     />
                                     <input
+                                        name="stitchAlignment"
                                         type="radio"
                                         value="yes"
                                         checked={this.state.stitchAlignment === "yes"}
-                                        onChange={this.onStitchAlignmentChange}
+                                        onChange={this.handleInputChange}
                                     />
                                 </div>
                                 <div className="group">
                                     <label>Многофактурность {data.multiMaterial}:</label>
                                     <input
+                                        name="multiMaterial"
                                         type="radio"
                                         value="no"
                                         checked={this.state.multiMaterial === "no"}
-                                        onChange={this.onMultiMaterialChange}
+                                        onChange={this.handleInputChange}
                                     />
                                     <input
+                                        name="multiMaterial"
                                         type="radio"
                                         value="yes"
                                         checked={this.state.multiMaterial === "yes"}
-                                        onChange={this.onMultiMaterialChange}
+                                        onChange={this.handleInputChange}
                                     />
                                 </div>
                                 <button>Рассчитать</button>

@@ -10,6 +10,8 @@ import Login from './components/Login';
 import Register from './components/Register';
 import SingleBranch from './components/branch/SingleBranch';
 
+import MaterialFormMain from './components/MaterialForm/MaterialFormMain';
+
 class App extends Component {
   componentDidMount(){
     this.props.fetchData();
@@ -23,6 +25,7 @@ class App extends Component {
             <Route exact path="/" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/branch/:id" component={SingleBranch} />
+            <Route path="/add_material" component={MaterialFormMain} />
           </Switch>
         </div>
       </Router>

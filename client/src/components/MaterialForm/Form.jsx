@@ -12,25 +12,13 @@ class Form extends Component {
             error: ''
         }
     }
-    onPricePlatinumChange = (e) => {
-        const pricePlatinum = e.target.value;
-        this.setState(() => ({ pricePlatinum }));
-    }
-    onPriceGoldChange = (e) => {
-        const priceGold = e.target.value;
-        this.setState(() => ({ priceGold }));
-    }
-    onBranchChange = (e) => {
-        const branch = e.target.value;
-        this.setState(() => ({ branch }));
-    };
-    onNameChange = (e) => {
-        const name = e.target.value;
-        this.setState(() => ({ name }));
-    };
-    onPriceChange = (e) => {
-        const price = e.target.value;
-        this.setState(() => ({ price }));
+    handleInputChange = (e) => {
+        const target = e.target;
+        const value = target.value;
+        const name = target.name;
+        this.setState({
+            [name]: value
+        });
     };
     onSubmit = (e) => {
         e.preventDefault();
