@@ -1,11 +1,12 @@
+
 export default (state = [], action) => {
     switch (action.type) {
-        case 'ADD_MATERIAL':
+        case 'ADD_MESSAGE':
             return [
                 ...state,
-                action.material
+                action.message
             ];
         default:
             return state;
     }
-};
+}; 

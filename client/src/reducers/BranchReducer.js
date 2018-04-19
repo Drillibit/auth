@@ -1,6 +1,4 @@
-const BranchReducerDefaultState = [];
-
-export default (state = BranchReducerDefaultState, action) => {
+export default (state = [], action) => {
     switch (action.type) {
         case 'ADD_BRANCH':
             return [
