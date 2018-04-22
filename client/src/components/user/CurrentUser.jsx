@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const CurrentUser = ({ users }) => {
-    const user = users[0] || users[1];
+    const user = users[0];
+    console.log(users);
 
     if(!user){
         return (
