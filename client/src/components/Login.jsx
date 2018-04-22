@@ -24,10 +24,10 @@ class Login extends Component {
             username: this.state.username,
             password: this.state.password
         };
-        this.props.dispatch(StartLoginUser( user ));
-        console.log(user);
+        this.props.StartLoginUser( user );
     };
     render(){
+        console.log(this.props);
         return(
             <div>
                 <h1>Login</h1>
@@ -51,10 +51,12 @@ class Login extends Component {
     };
 };
 
-const mapStateToProps = (state) => {
+
+const mapDispatchToProps = (dispatch) => {
     return {
-        users: state.users
+        StartLoginUser: (user) => {
+            dispatch(StartLoginUser(user))
+        }
     }
 }
-
-export default connect(mapStateToProps)(Login);
+export default connect(undefined, mapDispatchToProps)(Login);

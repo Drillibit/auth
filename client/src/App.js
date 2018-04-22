@@ -5,6 +5,8 @@ import Loadable from 'react-loadable';
 import './App.css';
 //data
 import * as actions from './actions/fetchData';
+//Auth check
+import PrivateRoute from './components/user/Auth';
 //components
 import Menu from './components/Menu';
 import Login from './components/Login';
@@ -35,6 +37,7 @@ class App extends Component {
             <Route path="/branch/:id" component={SingleBranch} />
             <Route path="/add_material" component={MaterialFormMain} />
             <Route path="/add_branch" component={BranchFormMain} />
+            <PrivateRoute path="/prot" component={BranchFormMain} />
           </Switch>
         </div>
       </Router>
