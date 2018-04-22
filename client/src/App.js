@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Loadable from 'react-loadable';
 import './App.css';
 //data
 import * as actions from './actions/fetchData';
@@ -11,16 +10,8 @@ import ProtectedRoutes from './components/user/ProtectedRoutes';
 import Menu from './components/Menu';
 import Login from './components/Login';
 import Register from './components/Register';
-import SingleBranch from './components/branch/SingleBranch';
 
-import MaterialFormMain from './components/MaterialForm/MaterialFormMain';
 
-const Loading = () => <div>Loading...</div>;
-
-const BranchFormMain = Loadable({
-  loader: () => import('./components/BranchForm/BranchFormMain'),
-  loading: Loading
-});
 
 class App extends Component {
   componentDidMount(){

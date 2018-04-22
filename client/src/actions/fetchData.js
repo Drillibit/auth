@@ -3,7 +3,7 @@ import { addUser } from './user';
 import { addBranch } from './branch';
 import { addMaterial } from './material';
 
-export const fetchData = (userLog = {}) => {
+export const fetchData = () => {
     return async (dispatch) => {
         let currentUser = await axios.get('/api/current_user');
         dispatch(addUser(currentUser.data));
@@ -18,15 +18,5 @@ export const fetchData = (userLog = {}) => {
             dispatch(addMaterial({ ...material }));
             return material;
         });
-
-        const {
-            username = '',
-            password = ''
-        } = userLog;
-        const user = {
-            username,
-            password
-        };
-
     };
 };
