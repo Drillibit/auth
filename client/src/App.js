@@ -6,7 +6,7 @@ import './App.css';
 //data
 import * as actions from './actions/fetchData';
 //Auth check
-import PrivateRoute from './components/user/Auth';
+import ProtectedRoutes from './components/user/ProtectedRoutes';
 //components
 import Menu from './components/Menu';
 import Login from './components/Login';
@@ -34,10 +34,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Login} />
             <Route path="/register" component={Register} />
-            <Route path="/branch/:id" component={SingleBranch} />
-            <Route path="/add_material" component={MaterialFormMain} />
-            <Route path="/add_branch" component={BranchFormMain} />
-            <PrivateRoute path="/prot" component={BranchFormMain} />
+            <ProtectedRoutes />
           </Switch>
         </div>
       </Router>
