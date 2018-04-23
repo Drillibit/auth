@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { startRemoveMaterial } from '../../actions/material';
 
 const CurrentMat = (props) => {
     return (
@@ -9,6 +10,9 @@ const CurrentMat = (props) => {
                     return <li key={material._id}>
                         <p>{material.name}</p>
                         <p>Цена: {material.price}</p>
+                        <button onClick={() => {
+                            props.dispatch(startRemoveMaterial({ _id: material._id }));
+                        }}>Удалить</button>
                     </li>;
                 })}
             </ul>

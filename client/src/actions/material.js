@@ -25,3 +25,15 @@ export const startAddMaterial = (materialData = {}) => {
         dispatch(addMaterial({ ...res.data }));
     };
 };
+
+const removeMaterial = ({ _id } = {}) => ({
+    type: 'REMOVE_MATERIAL',
+    _id
+});
+
+export const startRemoveMaterial = ({ _id } = {}) => {
+    return async (dispatch) => {
+        await axios.delete(`/api/remove/${_id}`, _id);
+        dispatch(removeMaterial({ _id }));
+    }
+};

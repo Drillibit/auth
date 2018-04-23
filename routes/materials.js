@@ -28,4 +28,11 @@ module.exports = (app) => {
                 });
             });
     });
+    app.delete('/api/remove/:id', (req, res) => {
+        Material.findOneAndRemove({
+            _id: req.params.id
+        }).then(() => {
+            res.send(req.params.id)
+        });
+    });
 };
