@@ -31,4 +31,11 @@ module.exports = (app) => {
                 });
             });
     });
+    app.delete('/api/remove-branch/:id', (req, res) => {
+        Branch.findOneAndRemove({
+            _id: req.params.id
+        }).then(() => {
+            res.send(req.params.id)
+        });
+    });
 };

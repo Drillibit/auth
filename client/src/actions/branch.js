@@ -31,3 +31,15 @@ export const startAddBranch = (branchData = {}) => {
         dispatch(addBranch({ ...res.data }));
     };
 };
+
+const removeBranch = ({ _id } = {}) => ({
+    type: 'REMOVE_BRANCH',
+    _id
+});
+
+export const startRemoveBranch = ({ _id } = {}) => {
+    return async (dispatch) => {
+        await axios.delete(`/api/remove-branch/${_id}`, _id);
+        dispatch(removeBranch({ _id }));
+    }
+};

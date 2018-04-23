@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { calculate } from './calculate';
+import { startRemoveBranch } from '../../actions/branch';
 
 class SingleBranch extends Component {
 
@@ -184,6 +185,9 @@ class SingleBranch extends Component {
                                 </div>
                                 <button>Рассчитать</button>
                             </form>
+                            <button onClick={() => {
+                                this.props.dispatch(startRemoveBranch({ _id: data._id }))
+                            }}>Удалить</button>
                         </div>
                         <p>Результат: {this.state.result}</p>
                     </div>
