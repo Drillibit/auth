@@ -8,20 +8,25 @@ const Menu = ({ users }) => {
     const user = users[0];
     if(user){
         return (
-            <nav>
-                <Link to="/">Home</Link>
-                <Link to="/register">Register</Link>
-                <Link to="/add_material">Add Materials</Link>
-                <Link to="/add_branch">Add Branch</Link>
-                <CurrentUser />
-                <Branches />
+            <nav className="menu_main">
+                <div className="wrapper">
+                    <div className="menu_top">
+                        <ul className="menu_wrapper">
+                            <Link className="menu_link" to="/">Главная</Link>
+                            <Link className="menu_link" to="/add_material">Добавить материал</Link>
+                            <Link className="menu_link" to="/add_branch">Добавить филиал</Link>
+                        </ul>
+                            <Branches />
+                    </div>
+                    <CurrentUser />
+                </div>
             </nav>
         );
     } else {
         return (
-            <nav>
-                <Link to="/">Home</Link>
-                <Link to="/register">Register</Link>
+            <nav className="menu_main">
+                <Link className="menu_link" to="/">Главная</Link>
+                <Link className="menu_link" to="/register">Зарегистрироваться</Link>
             </nav>
         );
     }

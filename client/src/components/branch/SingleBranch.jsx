@@ -40,7 +40,7 @@ class SingleBranch extends Component {
         const data = { ...this.props.location.state };
         return (
             <div>
-                <p>Филиал {data.branchName}</p>
+                <h3>Филиал {data.branchName}</h3>
                 <section>
                     <div className="wrapper">
                         <div className="container">

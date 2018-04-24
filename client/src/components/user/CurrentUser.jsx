@@ -13,10 +13,12 @@ const CurrentUser = ({ users }) => {
         );
     } else {
         return (
-            <div>
-                <p>Name: {user.username}</p>
-                <p>Email: {user.email}</p>
-                <a href="/api/logout">Logout</a>
+            <div className="user_card">
+                <div className="user_info">
+                    <p>Имя: {user.username}</p>
+                    <p>Статус: {user.email}</p>
+                </div>
+                <a className="button_red" href="/api/logout">Выйти</a>
             </div>
         );
     }

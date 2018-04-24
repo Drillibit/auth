@@ -1,28 +1,127 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white;
 }
 
 .App-title {
-  font-size: 1.5em;
+    font-size: 1.5em;
 }
 
 .App-intro {
-  font-size: large;
+    font-size: large;
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Forms */
+.menu_main {
+    background-color: #65453b;
+    min-height: 170px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    align-items: center;
+    min-height: 170px;
+}
+
+.menu_wrapper {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: #fff;
+}
+
+.menu_top {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.menu_link {
+    margin: 0 3px;
+    font-size: 1.3rem;
+    border-right: 2px solid #fff;
+    padding-right: 6px;
+    transition: color .2s ease;
+}
+
+.menu_link:hover {
+    color: gray;
+}
+
+/* User Card */
+.user_card {
+    background-color: #ebe8e1;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.user_text {
+    color: #fff;
+}
+
+.button_red {
+    background-color: red;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all .2s ease-in-out;
+}
+
+.button_red:hover {
+    transform: scale(1.1);
+}
+
+/* Menu User */
+.user_info {
+    color: #65453b;
+    font-size: 1.1rem;
+    text-align: left;
+}
+
+/* Branches */
+.menu_branches {
+    align-self: flex-start;
+    display: flex;
+    font-size: 1.3rem;
+    margin-top: 1rem;
+}
+
+.menu_branches > p {
+    padding: 0;
+    margin: 0;
+    margin-right: 10px; 
+    color: #fff;
+}
+
+.menu_branches > a {
+    text-decoration: underline;
 }
