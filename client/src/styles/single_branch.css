@@ -1,0 +1,38 @@
+.btn_red {
+    background-color: red;
+    border-radius: 10px;
+    padding: 10px 17px;
+    color: #fff;
+    margin: 60px auto 20px;
+    transition: -webkit-transform .2s ease-in;
+    font-size: 1.2rem;
+    transition: transform .2s ease-in;
+    transition: transform .2s ease-in,-webkit-transform .2s ease-in;
+}
+
+.btn_red:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.radio {
+    display: flex;
+    max-height: 70px;
+    align-items: center;
+}
+
+.single_branch {
+    width: 60%;
+}
+
+select {
+    width: 100%;
+    outline: none;
+    color: #6b4439;
+    border: none;
+    background-color: transparent;
+    font-weight: 700;
+    font-size: 1.2rem;
+    font-family: Open Sans,sans-serif;
+    margin: 10px 0;
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { calculate } from './calculate';
 import { startRemoveBranch } from '../../actions/branch';
+import '../../styles/single_branch.css';
 
 class SingleBranch extends Component {
 
@@ -42,11 +43,11 @@ class SingleBranch extends Component {
             <div>
                 <h3>Филиал {data.branchName}</h3>
                 <section>
-                    <div className="wrapper">
                         <div className="container">
-                            <form onSubmit={this.handleSubmit}>
-                                <div className="group">
-                                    <label>Обычный</label>
+                            <form className="single_branch" onSubmit={this.handleSubmit}>
+                                <div className="group radio">
+                                    <p>Цена:</p>
+                                    <label>Обычная</label>
                                     <input
                                         name="discount"
                                         type="radio"
@@ -54,7 +55,7 @@ class SingleBranch extends Component {
                                         checked={this.state.discount === "price"}
                                         onChange={this.handleInputChange}
                                     />
-                                    <label>Золото</label>
+                                    <label>vip-1</label>
                                     <input
                                         name="discount"
                                         type="radio"
@@ -62,7 +63,7 @@ class SingleBranch extends Component {
                                         checked={this.state.discount === "priceGold"}
                                         onChange={this.handleInputChange}
                                     />
-                                    <label>Платина</label>
+                                    <label>vip-2</label>
                                     <input
                                         name="discount"
                                         type="radio"
@@ -103,6 +104,8 @@ class SingleBranch extends Component {
                                         value={this.state.space}
                                         onChange={this.handleInputChange}
                                     />
+                                </div>
+                                <div className="group">
                                     <label>Углы</label>
                                     <input
                                         name="angles"
@@ -183,14 +186,13 @@ class SingleBranch extends Component {
                                         onChange={this.handleInputChange}
                                     />
                                 </div>
-                                <button>Рассчитать</button>
+                                <p>Результат: {this.state.result}</p>
+                                <button className="form_btn">Рассчитать</button>
                             </form>
-                            <button onClick={() => {
+                            <button className="btn_red" onClick={() => {
                                 this.props.dispatch(startRemoveBranch({ _id: data._id }))
-                            }}>Удалить</button>
+                            }}>Удалить филиал {data.branchName}</button>
                         </div>
-                        <p>Результат: {this.state.result}</p>
-                    </div>
                 </section>
             </div>
         );
