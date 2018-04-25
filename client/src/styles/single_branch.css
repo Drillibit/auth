@@ -36,3 +36,11 @@ select {
     font-family: Open Sans,sans-serif;
     margin: 10px 0;
 }
+
+.single_branch_header {
+    color: #6b4439;
+    font-size: 1.5rem;
+    font-family: Open Sans, Arial, Helvetica, sans-serif;
+    padding-top: 1rem;
+    margin-bottom: 0;
+}

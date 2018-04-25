@@ -41,7 +41,7 @@ class SingleBranch extends Component {
         const data = { ...this.props.location.state };
         return (
             <div>
-                <h3>Филиал {data.branchName}</h3>
+                <h3 className="single_branch_header">Филиал {data.branchName}</h3>
                 <section>
                         <div className="container">
                             <form className="single_branch" onSubmit={this.handleSubmit}>

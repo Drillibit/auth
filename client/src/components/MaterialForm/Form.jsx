@@ -43,7 +43,7 @@ class Form extends Component {
     };
     render() {
         return (
-            <div>
+            <div className="container">
                 {this.state.error && <p>{this.state.error}</p>}
                 <form onSubmit={this.onSubmit}>
                     <select name="branch" value={this.state.branch} onChange={this.handleInputChange}>
