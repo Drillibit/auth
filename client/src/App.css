@@ -1,5 +1,11 @@
+body {
+    min-height: 100%;
+    background-color: #ebe8e1;
+}
+
 .App {
     text-align: center;
+    min-height: 100%;
 }
 
 .App-logo {
@@ -118,7 +124,7 @@ a {
 .menu_branches > p {
     padding: 0;
     margin: 0;
-    margin-right: 10px; 
+    margin-right: 10px;
     color: #fff;
 }
 

@@ -58,12 +58,11 @@ class Form extends Component {
     };
     render() {
         return (
-            <div>
-                <h1>Form</h1>
+            <div className="container">
                 {this.state.error && <p>{this.state.error}</p>}
                 <form onSubmit={this.onSubmit}>
-                    <div>
-                        <label>Город</label>
+                    <div className="group">
+                        <label htmlFor="branchName">Город</label>
                         <input
                             name="branchName"
                             type="text"
@@ -73,80 +72,80 @@ class Form extends Component {
                             onChange={this.handleInputChange}
                         />
                     </div>
-                    <div>
+                    <div className="group">
                         <label>Стоимость угла</label>
                         <input
                             name="anglePrice"
                             type="number"
-                            placeholder="Стоимость доп угла"
+                            placeholder="0"
                             value={this.state.anglePrice}
                             onChange={this.handleInputChange}
                         />
                     </div>
-                    <div>
+                    <div className="group">
                         <label>Стоимость Выреза</label>
                         <input
                             name="cutPrice"
                             type="number"
-                            placeholder="Вырез"
+                            placeholder="0"
                             value={this.state.cutPrice}
                             onChange={this.handleInputChange}
                         />
                     </div>
-                    <div>
+                    <div className="group">
                         <label>Стоимость Упаковки</label>
                         <input
                             name="packPrice"
                             type="number"
-                            placeholder="Упаковка"
+                            placeholder="0"
                             value={this.state.packPrice}
                             onChange={this.handleInputChange}
                         />
                     </div>
-                    <div>
+                    <div className="group">
                         <label>Стоимость Кривой</label>
                         <input
                             name="curvePrice"
                             type="number"
-                            placeholder="Кривая"
+                            placeholder="0"
                             value={this.state.curvePrice}
                             onChange={this.handleInputChange}
                         />
                     </div>
-                    <div>
+                    <div className="group">
                         <label>Стоимость заданного шва</label>
                         <input
                             name="customStitch"
                             type="number"
-                            placeholder="Заданный шов"
+                            placeholder="0"
                             value={this.state.customStitch}
                             onChange={this.handleInputChange}
                         />
                         <span>%</span>
                     </div>
-                    <div>
+                    <div className="group">
                         <label>Стоимость центровки швов</label>
                         <input
                             name="stitchAlignment"
                             type="number"
-                            placeholder="Центровка швов"
+                            placeholder="0"
                             value={this.state.stitchAlignment}
                             onChange={this.handleInputChange}
                         />
                         <span>%</span>
                     </div>
-                    <div>
+                    <div className="group">
                         <label>Стоимость многофактурности</label>
                         <input
                             name="multiMaterial"
                             type="number"
-                            placeholder="Многофактурность"
+                            placeholder="0"
                             value={this.state.multiMaterial}
                             onChange={this.handleInputChange}
                         />
                         <span>%</span>
                     </div>
-                    <button>
+                    <button className="form_btn">
                         Добавить город
                     </button>
                 </form>
