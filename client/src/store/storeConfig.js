@@ -5,6 +5,7 @@ import UserReducer from '../reducers/UserReducer';
 import BranchReducer from '../reducers/BranchReducer';
 import MatReducer from '../reducers/MatReducer';
 import FlashMessageReducer from '../reducers/FlashMessageReducer';
+import DisplayMatReducer from '../reducers/DisplayMatReducer';
 
 export default () => {
     const store = createStore(
@@ -12,7 +13,8 @@ export default () => {
             users: UserReducer,
             materials: MatReducer,
             branches: BranchReducer,
-            messages: FlashMessageReducer
+            messages: FlashMessageReducer,
+            mat: DisplayMatReducer
         }),
         compose(
             applyMiddleware(thunk),

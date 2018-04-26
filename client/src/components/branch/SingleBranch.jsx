@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { calculate } from './calculate';
 import { startRemoveBranch } from '../../actions/branch';
+import { addDisplayMat } from '../../actions/displayMat';
+
+import DisplayMatMain from './materials/DisplayMatMain';
 import '../../styles/single_branch.css';
 
 class SingleBranch extends Component {
@@ -40,10 +43,11 @@ class SingleBranch extends Component {
         //stores initial branch data
         const data = { ...this.props.location.state };
         return (
-            <div>
+            <div className="branch_container">
+                <div className="branch_display">
                 <h3 className="single_branch_header">Филиал {data.branchName}</h3>
                 <section>
-                        <div className="container">
+                        <div className="">
                             <form className="single_branch" onSubmit={this.handleSubmit}>
                                 <div className="group radio">
                                     <p>Цена:</p>
@@ -79,7 +83,7 @@ class SingleBranch extends Component {
                                         onChange={this.handleInputChange}>
                                         <option value="0">Выберете материал</option>
                                         {this.props.materials.map((material) => {
-                                            return (material.branch === data.branchName) ? (<option
+                                            return (material.branch === data.branchName || material.branch === 'all') ? (<option
                                                 key={material._id}
                                                 value={
                                                     this.state.discount === 'priceGold' ? material.priceGold :
@@ -193,7 +197,9 @@ class SingleBranch extends Component {
                                 this.props.dispatch(startRemoveBranch({ _id: data._id }))
                             }}>Удалить филиал {data.branchName}</button>
                         </div>
-                </section>
+                    </section>
+                </div>
+                <DisplayMatMain />
             </div>
         );
     }

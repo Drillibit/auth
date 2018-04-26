@@ -21,9 +21,9 @@
     align-items: center;
 }
 
-.single_branch {
+/* .single_branch {
     width: 60%;
-}
+} */
 
 select {
     width: 100%;
@@ -43,4 +43,14 @@ select {
     font-family: Open Sans, Arial, Helvetica, sans-serif;
     padding-top: 1rem;
     margin-bottom: 0;
+}
+
+.branch_container {
+    display: flex;
+    width: 90%;
+    margin: 0 10%;
+}
+
+.branch_display {
+    min-width: 40%;
 }
