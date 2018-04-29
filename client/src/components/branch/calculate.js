@@ -1,6 +1,7 @@
 export const calculate = (data, state) => {
     let raw = parseFloat(state.space) * parseFloat(state.material);
     let angleSum = (state.angle > 4) ? ((state.angle - 4) * data.anglePrice) : 0;
+    console.log(angleSum);
 
     let customStitch = state.customStitch === "yes" ? data.customStitch : 0;
     let stitchAlignment = state.stitchAlignment === "yes" ? data.stitchAlignment : 0;

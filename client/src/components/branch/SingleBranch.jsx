@@ -14,7 +14,7 @@ class SingleBranch extends Component {
         this.state = {
             material: 0,
             space: 0,
-            angle: 0,
+            angle: 4,
             curve: 0,
             cut: 0,
             customStitch: "no" || '',
@@ -24,6 +24,9 @@ class SingleBranch extends Component {
             result: 0
         };
     };
+
+    handleMat
+
     handleInputChange = (e) => {
         const target = e.target;
         const value = target.value;
@@ -37,6 +40,7 @@ class SingleBranch extends Component {
         const state = this.state;
         e.preventDefault();
         this.setState(() => ({ result: calculate(data, state) }));
+
     };
 
     render() {
@@ -83,11 +87,12 @@ class SingleBranch extends Component {
                                         onChange={this.handleInputChange}>
                                         <option value="0">Выберете материал</option>
                                         {this.props.materials.map((material) => {
+                                            const discount = this.state.discount;
                                             return (material.branch === data.branchName || material.branch === 'all') ? (<option
                                                 key={material._id}
                                                 value={
-                                                    this.state.discount === 'priceGold' ? material.priceGold :
-                                                        this.state.discount === 'pricePlatinum' ? material.pricePlatinum : material.price
+                                                    discount === 'priceGold' ? material.priceGold :
+                                                    discount === 'pricePlatinum' ? material.pricePlatinum : material.price
                                                 }>
                                                 {material.name}
                                                 {
@@ -103,7 +108,7 @@ class SingleBranch extends Component {
                                     <input
                                         required
                                         name="space"
-                                        type="text"
+                                        type="number"
                                         placeholder="площадь"
                                         value={this.state.space}
                                         onChange={this.handleInputChange}
@@ -112,10 +117,10 @@ class SingleBranch extends Component {
                                 <div className="group">
                                     <label>Углы</label>
                                     <input
-                                        name="angles"
-                                        type="text"
-                                        placeholder="углы"
-                                        value={this.state.angles}
+                                        name="angle"
+                                        type="number"
+                                        placeholder="4"
+                                        value={this.state.angle}
                                         onChange={this.handleInputChange}
                                     />
                                 </div>
