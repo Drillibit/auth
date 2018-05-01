@@ -12,7 +12,10 @@ class SingleBranch extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            material: 0,
+            material: {
+                name: '',
+                price: 0
+            },
             space: 0,
             angle: 4,
             curve: 0,
@@ -25,7 +28,20 @@ class SingleBranch extends Component {
         };
     };
 
-    handleMat
+    handleMatChange = (e) => {
+        let material = e.target.value;
+        let data = this.props.materials.find(mat => mat.name === material);
+        const discount = this.state.discount;
+        this.setState({
+            material: {
+                name:   data.name,
+                price:  discount === 'priceGold' ? data.priceGold :
+                        discount === 'pricePlatinum' ? data.pricePlatinum :
+                        data.price
+            }
+                
+        })
+    };
 
     handleInputChange = (e) => {
         const target = e.target;
@@ -40,7 +56,11 @@ class SingleBranch extends Component {
         const state = this.state;
         e.preventDefault();
         this.setState(() => ({ result: calculate(data, state) }));
-
+        let mat = {
+            name: this.state.material.name,
+            price: calculate(data, state)
+        };
+        this.props.dispatch(addDisplayMat(mat));
     };
 
     render() {
@@ -83,21 +103,20 @@ class SingleBranch extends Component {
                                 <div className="group">
                                     <select
                                         name="material" 
-                                        value={this.state.material} 
-                                        onChange={this.handleInputChange}>
+                                        value={this.state.material.name} 
+                                        onChange={this.handleMatChange}>
                                         <option value="0">Выберете материал</option>
                                         {this.props.materials.map((material) => {
                                             const discount = this.state.discount;
                                             return (material.branch === data.branchName || material.branch === 'all') ? (<option
                                                 key={material._id}
                                                 value={
-                                                    discount === 'priceGold' ? material.priceGold :
-                                                    discount === 'pricePlatinum' ? material.pricePlatinum : material.price
+                                                    material.name
                                                 }>
                                                 {material.name}
                                                 {
-                                                    this.state.discount === 'priceGold' ? material.priceGold :
-                                                        this.state.discount === 'pricePlatinum' ? material.pricePlatinum : material.price
+                                                    discount === 'priceGold' ? material.priceGold :
+                                                    discount === 'pricePlatinum' ? material.pricePlatinum : material.price
                                                 }тг
                                             </option>) : '';
                                         })}

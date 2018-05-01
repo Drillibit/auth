@@ -1,7 +1,6 @@
 export const calculate = (data, state) => {
-    let raw = parseFloat(state.space) * parseFloat(state.material);
+    let raw = parseFloat(state.space) * parseFloat(state.material.price);
     let angleSum = (state.angle > 4) ? ((state.angle - 4) * data.anglePrice) : 0;
-    console.log(angleSum);
 
     let customStitch = state.customStitch === "yes" ? data.customStitch : 0;
     let stitchAlignment = state.stitchAlignment === "yes" ? data.stitchAlignment : 0;
@@ -11,6 +10,11 @@ export const calculate = (data, state) => {
     let cut = state.cut * data.cutPrice;
     let curve = state.curve * data.curvePrice;
     let res = additional + angleSum + cut + curve + data.packPrice;
-    let result = Math.ceil(parseFloat(res));
-    return result;
+    if(res < 1500){
+        let result = `1500 минимальная стоимость потолка`;
+        return result;
+    } else {
+        let result = Math.ceil(parseFloat(res));
+        return result;
+    }
 };

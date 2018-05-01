@@ -7,7 +7,9 @@ const DisplayMatMain = (props) => {
     return (
         <div className="display_mat">
             <p>Hello from DisplayMAT</p>
-            <MatCard />
+            {props.mat.map((m, index) => {
+                return <MatCard key={index} data={m} />
+            })}
         </div>
     )
 }
