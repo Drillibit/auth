@@ -1,5 +1,6 @@
 import React from 'react'; 
 import { connect } from 'react-redux';
+import '../../styles/current_user.css';
 
 const CurrentUser = ({ users }) => {
     const user = users[0];
@@ -8,7 +9,7 @@ const CurrentUser = ({ users }) => {
     if(!user){
         return (
             <div>
-                <p>You are not logged in</p>
+                <p>Вы не зашли :)</p>
             </div>
         );
     } else {

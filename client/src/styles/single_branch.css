@@ -1,13 +1,12 @@
 .btn_red {
-    background-color: red;
-    border-radius: 10px;
-    padding: 10px 17px;
+    background: rgb(204, 43, 94);
+    padding: 15px 17px;
     color: #fff;
     margin: 60px auto 20px;
     transition: -webkit-transform .2s ease-in;
     font-size: 1.2rem;
     transition: transform .2s ease-in;
-    transition: transform .2s ease-in,-webkit-transform .2s ease-in;
+    border: none;
 }
 
 .btn_red:hover {
@@ -21,14 +20,10 @@
     align-items: center;
 }
 
-/* .single_branch {
-    width: 60%;
-} */
-
 select {
     width: 100%;
     outline: none;
-    color: #6b4439;
+    color: #fff;
     border: none;
     background-color: transparent;
     font-weight: 700;
@@ -38,19 +33,42 @@ select {
 }
 
 .single_branch_header {
-    color: #6b4439;
+    background: -webkit-gradient(linear, left top, right top, from(rgb(43, 88, 118)), to(rgb(78, 67, 118)));
+    background: -webkit-linear-gradient(left, rgb(43, 88, 118), rgb(78, 67, 118));
+    background: -o-linear-gradient(left, rgb(43, 88, 118), rgb(78, 67, 118));
+    background: linear-gradient(to right, rgb(43, 88, 118), rgb(78, 67, 118));
+    color: #fff;
     font-size: 1.5rem;
-    font-family: Open Sans, Arial, Helvetica, sans-serif;
-    padding-top: 1rem;
-    margin-bottom: 0;
+    font-family: 'Pacifico', cursive;
+    font-weight: 100;
+    font-size: 1.8rem;
+    border-radius: 5px;
+    width: 50%;
+    margin: 50px auto -177px auto;
+    position: relative;
+    padding: 10px;
 }
 
 .branch_container {
     display: flex;
     width: 90%;
     margin: 0 10%;
+    position: relative;
 }
 
 .branch_display {
     min-width: 40%;
+}
+
+.result_pannel {
+    display: flex;
+    flex-direction: column;
+}
+
+.result {
+    font-family: 'Pacifico', cursive;
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 100;
+    order: 1;
 }

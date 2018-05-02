@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 
 const Branches = (props) => {
     return (
-        <div className="menu_branches">
-                <p>Филиалы:</p>
+        <div className="menu_branches dropdown">
+                <button className="dropbtn">Филиалы</button>
+            <div className="dropdown-content">
             {props.branches.map((branch) => {
                 return (<Link
                     key={branch._id}
@@ -15,6 +16,7 @@ const Branches = (props) => {
                     }}
                 >{branch.branchName}</Link>);
             })}
+            </div>
         </div>
     );
 };

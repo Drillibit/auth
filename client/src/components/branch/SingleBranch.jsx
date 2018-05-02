@@ -73,7 +73,7 @@ class SingleBranch extends Component {
                 <div className="branch_display">
                 <h3 className="single_branch_header">Филиал {data.branchName}</h3>
                 <section>
-                        <div className="">
+                        <div className="form_bg">
                             <form className="single_branch" onSubmit={this.handleSubmit}>
                                 <div className="group radio">
                                     <p>Цена:</p>
@@ -216,8 +216,10 @@ class SingleBranch extends Component {
                                         onChange={this.handleInputChange}
                                     />
                                 </div>
-                                <p>Результат: {this.state.result}</p>
-                                <button className="form_btn">Рассчитать</button>
+                                <div className="result_pannel">
+                                    <p className="result">Результат: {this.state.result}</p>
+                                    <button className="form_btn">Рассчитать</button>
+                                </div>
                             </form>
                             <button className="btn_red" onClick={() => {
                                 this.props.dispatch(startRemoveBranch({ _id: data._id }))

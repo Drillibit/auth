@@ -60,7 +60,7 @@ class Form extends Component {
         return (
             <div className="container">
                 {this.state.error && <p>{this.state.error}</p>}
-                <form onSubmit={this.onSubmit}>
+                <form className="form_bg" onSubmit={this.onSubmit}>
                     <div className="group">
                         <label htmlFor="branchName">Город</label>
                         <input
