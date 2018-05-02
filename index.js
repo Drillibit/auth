@@ -5,10 +5,10 @@ const passport = require('passport');
 const cookieSession = require('cookie-session');
 require('./utils/passport');
 
-const keys = require('./config/keys');
+// const keys = require('./config/keys');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(keys.mongoURI)
+mongoose.connect('mongodb://kvk-admin:293344asd@ds129926.mlab.com:29926/kvk-union')
     .then(() => console.log('MongoDB connected...'))
     .catch(err => console.log(err));
 
