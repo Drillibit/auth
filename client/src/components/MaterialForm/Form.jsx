@@ -45,7 +45,7 @@ class Form extends Component {
         return (
             <div className="container">
                 {this.state.error && <p>{this.state.error}</p>}
-                <form onSubmit={this.onSubmit}>
+                <form className="form_bg" onSubmit={this.onSubmit}>
                     <select name="branch" value={this.state.branch} onChange={this.handleInputChange}>
                         <option>Выберите город</option>
                         <option value="all">Все города</option>
@@ -53,6 +53,8 @@ class Form extends Component {
                             return <option key={branch._id} value={branch.branchName}>{branch.branchName}</option>;
                         })}
                     </select>
+                    <div className="group">
+                    <label>Название материала</label>
                     <input
                         name="name"
                         type="text"
@@ -61,7 +63,9 @@ class Form extends Component {
                         value={this.state.name}
                         onChange={this.handleInputChange}
                     />
-                    <div>
+                    </div>
+                    <div className="group">
+                        <label>Обычная цена</label>
                         <input
                             name="price"
                             type="number"
@@ -69,6 +73,9 @@ class Form extends Component {
                             value={this.state.price}
                             onChange={this.handleInputChange}
                         />
+                    </div>
+                    <div className="group">
+                        <label>Вип 1</label>
                         <input
                             name="priceGold"
                             type="number"
@@ -76,6 +83,9 @@ class Form extends Component {
                             value={this.state.priceGold}
                             onChange={this.handleInputChange}
                         />
+                    </div>
+                    <div className="group">
+                        <label>Вип 2</label>
                         <input
                             name="pricePlatinum"
                             type="number"
@@ -84,7 +94,7 @@ class Form extends Component {
                             onChange={this.handleInputChange}
                         />
                     </div>
-                    <button>
+                    <button className="form_btn">
                         Добавить Материал
                     </button>
                 </form>

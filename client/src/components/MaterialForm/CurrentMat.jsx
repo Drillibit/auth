@@ -2,19 +2,24 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { startRemoveMaterial } from '../../actions/material';
 import '../../styles/single_branch.css';
+import '../../styles/display_mat.css';
+
 
 const CurrentMat = (props) => {
     return (
         <div>
-            <section>
+            <section className="container">
                 {props.materials.map((material) => {
-                    return <div key={material._id}>
-                        <p>{material.name}</p>
-                        <p>Цена: {material.price}</p>
-                        <button className="btn_red" onClick={() => {
-                            props.dispatch(startRemoveMaterial({ _id: material._id }));
-                        }}>Удалить {material.name}</button>
-                    </div>;
+                    return <div className="card slideLeft" key={material._id}>
+                            <p className="card_text">Город: {material.branch}</p>
+                            <p className="card_text">{material.name}</p>
+                            <p className="card_text">Цена: {material.price}тг.</p>
+                            <p className="card_text">Цена Вип 1: {material.priceGold}тг.</p>
+                            <p className="card_text">Цена Вип 2: {material.pricePlatinum}тг.</p>
+                            <button className="btn_red" onClick={() => {
+                                props.dispatch(startRemoveMaterial({ _id: material._id }));
+                            }}>Удалить {material.name}</button>
+                        </div>;
                 })}
             </section>
         </div>

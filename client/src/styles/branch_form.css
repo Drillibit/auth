@@ -109,3 +109,21 @@ input {
     border-radius: 5px;
     position: relative;
 }
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: gray;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: gray;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: gray;
+}
+
+.add_material {
+    display: flex;
+    flex-direction: column;
+}
