@@ -9,6 +9,7 @@ class MatCard extends Component {
     }
 
     render() {
+        console.log(this.props)
         const { name, price} = this.props.data;
         return(
             <div className="card slideLeft">

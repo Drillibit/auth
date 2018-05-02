@@ -92,10 +92,6 @@
     font-size: 1.2rem;
 }
 
-.card:hover {
-    transform: scale(1.5);
-    z-index: 1;
-}
 
 .svg {
     max-width: 20px;

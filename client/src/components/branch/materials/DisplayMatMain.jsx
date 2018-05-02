@@ -9,7 +9,7 @@ const DisplayMatMain = (props) => {
         <div className="display_mat">
             <p>История счёта:</p>
             {props.mat.map((m, index) => {
-                return <MatCard key={index} data={m} rem={(id) => {
+                return <MatCard key={index} data={m} removeDisplayMat={(id) => {
                     props.dispatch(removeDisplayMat(id))
                 }}/>
             })}
