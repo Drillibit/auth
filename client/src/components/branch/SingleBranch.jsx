@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import uuid from 'uuid';
 import { calculate } from './calculate';
 import { startRemoveBranch } from '../../actions/branch';
 import { addDisplayMat } from '../../actions/displayMat';
@@ -57,6 +58,7 @@ class SingleBranch extends Component {
         e.preventDefault();
         this.setState(() => ({ result: calculate(data, state) }));
         let mat = {
+            id: uuid(),
             name: this.state.material.name,
             price: calculate(data, state)
         };

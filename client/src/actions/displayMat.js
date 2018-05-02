@@ -1,6 +1,6 @@
 export const addDisplayMat = (mat) => ({
     type: 'ADD_DISPLAY_MAT',
-    mat 
+    mat
 });
 
 export const removeDisplayMat = ({id} = {}) => ({
