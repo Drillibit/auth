@@ -6,7 +6,7 @@ import '../../../styles/display_mat.css';
 const DisplayMatMain = (props) => {
     return (
         <div className="display_mat">
-            <p>Hello from DisplayMAT</p>
+            <p>История счёта:</p>
             {props.mat.map((m, index) => {
                 return <MatCard key={index} data={m} />
             })}

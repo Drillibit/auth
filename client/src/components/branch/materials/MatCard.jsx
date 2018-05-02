@@ -1,11 +1,12 @@
 import React from 'react';
+import '../../../styles/display_mat.css';
 
 const MatCard = (props) => {
     return(
-        <div>
+        <div className="card">
             <p>Mat Card</p>
             <p>{props.data.name}</p>
-            <p>{props.data.price}</p>
+            <p>Стоимость: {props.data.price}</p>
         </div>
     )
 }
