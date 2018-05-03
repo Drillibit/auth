@@ -18,6 +18,11 @@ const MaterialFormMain = Loadable({
     loading: Loading
 });
 
+const CabinetMain = Loadable({
+    loader: () => import('../cabinet/CabinetMain'),
+    loading: Loading
+});
+
 const ProtectedRoutes = ({ users }) => {
     const user = users[0];
     if(user){
@@ -26,6 +31,7 @@ const ProtectedRoutes = ({ users }) => {
                 <Route path="/add_branch" component={BranchFormMain} />
                 <Route path="/branch/:id" component={SingleBranch} />
                 <Route path="/add_material" component={MaterialFormMain} />
+                <Route path="/cabinet" component={CabinetMain} />
             </div>
         );
     } else {

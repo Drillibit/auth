@@ -15,6 +15,7 @@ const Menu = ({ users }) => {
                             <Link className="menu_link" to="/">Главная</Link>
                             <Link className="menu_link" to="/add_material">Добавить материал</Link>
                             <Link className="menu_link" to="/add_branch">Добавить филиал</Link>
+                            <Link className="menu_link" to="/cabinet">Личный кабинет</Link>
                         </ul>
                             <Branches />
                     </div>
