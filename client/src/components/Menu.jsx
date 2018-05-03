@@ -25,8 +25,14 @@ const Menu = ({ users }) => {
     } else {
         return (
             <nav className="menu_main">
-                <Link className="menu_link" to="/">Главная</Link>
-                <Link className="menu_link" to="/register">Зарегистрироваться</Link>
+                <div className="wrapper">
+                    <div className="menu_top">
+                        <ul className="menu_wrapper">
+                            <Link className="menu_link" to="/">Главная</Link>
+                            <Link className="menu_link" to="/register">Зарегистрироваться</Link>
+                        </ul>
+                    </div>
+                </div>
             </nav>
         );
     }

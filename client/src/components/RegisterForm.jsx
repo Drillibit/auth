@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import RenderInfo from './RenderInfo';
+import CurrentUser from './user/CurrentUser';
+import Branches from './branch/Branches';
 
 class RegisterForm extends Component {
     constructor(props){
@@ -36,32 +37,42 @@ class RegisterForm extends Component {
     render(){
         return (
             <div className="container">
-                <h1>Hello There</h1>
-                <form onSubmit={this.onSubmit}>
-                    <input
-                        type="text"
-                        placeholder="Name"
-                        autoFocus
-                        value={this.state.username}
-                        onChange={this.onNameChange}
-                    />
-                    <input
-                        type="text"
-                        placeholder="Email"
-                        autoFocus
-                        value={this.state.email}
-                        onChange={this.onEmailChange}
-                    />
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        autoFocus
-                        value={this.state.password}
-                        onChange={this.onPasswordChange}
-                    />
-                    <button>Submit</button>
-                </form>
-                <RenderInfo state={this.state}/>
+                <h1 className="single_branch_header">Регистрация пользователя</h1>
+                <div className="form_bg">
+                    <form onSubmit={this.onSubmit}>
+                        <div className="group">
+                            <label>Имя</label>
+                            <input
+                                type="text"
+                                placeholder="Имя"
+                                autoFocus
+                                value={this.state.username}
+                                onChange={this.onNameChange}
+                            />
+                        </div>
+                        <div className="group">
+                            <label>Email</label>
+                            <input
+                                type="text"
+                                placeholder="Email"
+                                autoFocus
+                                value={this.state.email}
+                                onChange={this.onEmailChange}
+                            />
+                        </div>
+                        <div className="group">
+                            <label>Пароль</label>
+                            <input
+                                type="password"
+                                placeholder="Пароль"
+                                autoFocus
+                                value={this.state.password}
+                                onChange={this.onPasswordChange}
+                            />
+                        </div>
+                        <button className="form_btn">Submit</button>
+                    </form>
+                </div>
             </div>
         );
     }

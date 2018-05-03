@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { StartLoginUser } from '../actions/user';
 import { Redirect } from 'react-router';
+import '../styles/branch_form.css';
+import '../styles/single_branch.css';
 
 class Login extends Component {
     constructor(props){
@@ -30,24 +32,30 @@ class Login extends Component {
     render(){
         if(!this.props.users[0]){
             return (
-                <div>
-                    <h1>Login</h1>
+                <div className="container">
+                    <h1 className="single_branch_header">KVK UNION</h1>
+                    <div className="form_bg">
                     <form onSubmit={this.onSubmit}>
-                        <label>Name</label>
-                        <input
-                            type="text"
-                            value={this.state.name}
-                            onChange={this.onNameChange}
-                        />
-                        <label>Password</label>
-                        <input
-                            type="password"
-                            value={this.state.password}
-                            onChange={this.onPasswordChange}
-                        />
-                        <button>Login</button>
+                        <div className="group">
+                            <label>Имя</label>
+                            <input
+                                type="text"
+                                value={this.state.name}
+                                onChange={this.onNameChange}
+                            />
+                        </div>
+                        <div className="group">
+                            <label>Пароль</label>
+                            <input
+                                type="password"
+                                value={this.state.password}
+                                onChange={this.onPasswordChange}
+                            />
+                        </div>
+                        <button className="form_btn">Войти</button>
                     </form>
                 </div>
+            </div>
             );
         } else {
             return (
