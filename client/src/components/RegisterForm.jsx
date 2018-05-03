@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import CurrentUser from './user/CurrentUser';
-import Branches from './branch/Branches';
 
 class RegisterForm extends Component {
     constructor(props){
