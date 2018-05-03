@@ -43,6 +43,7 @@ class RegisterForm extends Component {
                         <div className="group">
                             <label>Имя</label>
                             <input
+                                className="input-width"
                                 type="text"
                                 placeholder="Имя"
                                 autoFocus
@@ -53,9 +54,9 @@ class RegisterForm extends Component {
                         <div className="group">
                             <label>Email</label>
                             <input
+                                className="input-width"
                                 type="text"
                                 placeholder="Email"
-                                autoFocus
                                 value={this.state.email}
                                 onChange={this.onEmailChange}
                             />
@@ -63,9 +64,9 @@ class RegisterForm extends Component {
                         <div className="group">
                             <label>Пароль</label>
                             <input
+                                className="input-width"
                                 type="password"
                                 placeholder="Пароль"
-                                autoFocus
                                 value={this.state.password}
                                 onChange={this.onPasswordChange}
                             />

@@ -39,6 +39,7 @@ class Login extends Component {
                         <div className="group">
                             <label>Имя</label>
                             <input
+                                className="input-width"
                                 type="text"
                                 value={this.state.name}
                                 onChange={this.onNameChange}
@@ -47,6 +48,7 @@ class Login extends Component {
                         <div className="group">
                             <label>Пароль</label>
                             <input
+                                className="input-width"
                                 type="password"
                                 value={this.state.password}
                                 onChange={this.onPasswordChange}
