@@ -6,6 +6,7 @@ import BranchReducer from '../reducers/BranchReducer';
 import MatReducer from '../reducers/MatReducer';
 import FlashMessageReducer from '../reducers/FlashMessageReducer';
 import DisplayMatReducer from '../reducers/DisplayMatReducer';
+import Filter from '../reducers/Filter';
 
 export default () => {
     const store = createStore(
@@ -14,7 +15,8 @@ export default () => {
             materials: MatReducer,
             branches: BranchReducer,
             messages: FlashMessageReducer,
-            mat: DisplayMatReducer
+            mat: DisplayMatReducer,
+            filters: Filter
         }),
         compose(
             applyMiddleware(thunk),
