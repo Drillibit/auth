@@ -1,0 +1,15 @@
+.footer {
+    min-height: 170px;
+    display: flex;
+    padding: 0 10%;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.footer > p {
+    color: #fff;
+    font-family: 'Pacifico', cursive;
+    font-size: 1.5rem;
+}
+

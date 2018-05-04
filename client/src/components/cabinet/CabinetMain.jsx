@@ -3,7 +3,7 @@ import React from 'react'
 const CabinetMain = (props) => {
     return(
         <div>
-            <h1>Hello from personal cabinet</h1>
+            <h1>Допиливается, приходите позже!</h1>
         </div>
     )
 }

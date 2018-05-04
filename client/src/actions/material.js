@@ -37,3 +37,16 @@ export const startRemoveMaterial = ({ _id } = {}) => {
         dispatch(removeMaterial({ _id }));
     }
 };
+
+const editMaterial = (_id, updates) => ({
+    type: 'EDIT_MATERIAL',
+    _id,
+    updates
+});
+
+export const startEditMat = (_id, updates) => {
+    return async (dispatch) => {
+        let res = await axios.put(`/api/edit/${_id}`, updates);
+        dispatch(editMaterial(_id, {...res.data}));
+    }
+}

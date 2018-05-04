@@ -11,6 +11,9 @@
     font-size: 1.2rem;
     transition: transform .2s ease-in;
     border: none;
+    overflow: hidden;
+    text-indent: -3%;
+    max-width: 100%;
 }
 
 .btn_red:hover {

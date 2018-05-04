@@ -8,6 +8,7 @@ import * as actions from './actions/fetchData';
 import ProtectedRoutes from './components/user/ProtectedRoutes';
 //components
 import Menu from './components/Menu';
+import Footer from './components/Footer';
 import Login from './components/Login';
 import Register from './components/Register';
 
@@ -27,6 +28,7 @@ class App extends Component {
             <Route path="/register" component={Register} />
             <ProtectedRoutes />
           </Switch>
+          <Footer />
         </div>
       </Router>
     );

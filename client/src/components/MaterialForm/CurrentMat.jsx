@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { startRemoveMaterial } from '../../actions/material';
+import { Link } from 'react-router-dom';
 import '../../styles/single_branch.css';
 import '../../styles/display_mat.css';
 
@@ -19,6 +20,7 @@ const CurrentMat = (props) => {
                             <button className="btn_red" onClick={() => {
                                 props.dispatch(startRemoveMaterial({ _id: material._id }));
                             }}>Удалить {material.name}</button>
+                            <Link className="form_btn" to={{pathname: `/edit/${material._id}`}}>Редактировать</Link>
                         </div>;
                 })}
             </section>

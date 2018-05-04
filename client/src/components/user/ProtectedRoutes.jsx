@@ -23,6 +23,11 @@ const CabinetMain = Loadable({
     loading: Loading
 });
 
+const EditMat = Loadable({
+    loader: () => import('../MaterialForm/EditMat'),
+    loading: Loading
+});
+
 const ProtectedRoutes = ({ users }) => {
     const user = users[0];
     if(user){
@@ -32,6 +37,7 @@ const ProtectedRoutes = ({ users }) => {
                 <Route path="/branch/:id" component={SingleBranch} />
                 <Route path="/add_material" component={MaterialFormMain} />
                 <Route path="/cabinet" component={CabinetMain} />
+                <Route path="/edit/:id" component={EditMat} />
             </div>
         );
     } else {
