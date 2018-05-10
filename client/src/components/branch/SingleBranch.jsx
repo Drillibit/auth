@@ -8,6 +8,7 @@ import { addDisplayMat } from '../../actions/displayMat';
 import DisplayMatMain from './materials/DisplayMatMain';
 import '../../styles/single_branch.css';
 
+ 
 class SingleBranch extends Component {
 
     constructor(props) {
