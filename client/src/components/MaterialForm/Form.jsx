@@ -6,9 +6,9 @@ class Form extends Component {
         this.state = {
             branch: props.material ? props.material.branch : '',
             name: props.material ? props.material.name : '',
-            price: props.material ? props.material.price : '',
-            priceGold: props.material ? props.material.priceGold : '',
-            pricePlatinum: props.material ? props.material.pricePlatinum : '',
+            price: props.material ? props.material.price : 0,
+            priceGold: props.material ? props.material.priceGold : 0,
+            pricePlatinum: props.material ? props.material.pricePlatinum : 0,
             error: ''
         }
     }

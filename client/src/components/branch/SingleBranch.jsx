@@ -110,7 +110,9 @@ class SingleBranch extends Component {
                                         <option value="0">Выберете материал</option>
                                         {this.props.materials.map((material) => {
                                             const discount = this.state.discount;
-                                            return (material.branch === data.branchName || material.branch === 'all') ? (<option
+                                            return (material.branch === data.branchName 
+                                                || material.branch === 'all') ? 
+                                            (<option
                                                 key={material._id}
                                                 value={
                                                     material.name
