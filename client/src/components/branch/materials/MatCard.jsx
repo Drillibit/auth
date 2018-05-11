@@ -4,9 +4,9 @@ class MatCard extends Component {
     constructor(props){
         super(props);
         this.state = {
+            id: this.props.data.id,
             sum: this.props.data.price,
             checked: false,
-            textVal: ''
         };
     }
 
@@ -33,7 +33,7 @@ class MatCard extends Component {
             <div className="card slideLeft">
                 <p>KVK UNION</p>
                 <p className="card_text">{name}</p>
-                <p className="card_text">Стоимость: {price} тг</p>
+                <p className="card_text">Стоимость: {price === 1500 ? `${price}тг минимальная стоимость потолка.` : `${price} тг` } </p>
                 <label htmlFor="switchChange" className="switch">
                     <input 
                         name="switchChange"

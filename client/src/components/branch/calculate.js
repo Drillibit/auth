@@ -11,7 +11,7 @@ export const calculate = (data, state) => {
     let curve = state.curve * data.curvePrice;
     let res = additional + angleSum + cut + curve + data.packPrice;
     if(res < 1500){
-        let result = `1500 минимальная стоимость потолка`;
+        let result = 1500;
         return result;
     } else {
         let result = Math.ceil(parseFloat(res));
