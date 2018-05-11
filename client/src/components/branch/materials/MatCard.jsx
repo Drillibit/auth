@@ -19,6 +19,7 @@ class MatCard extends Component {
                 } = this.props.data;
 
                 const onClick = () => {
+                    this.props.onSumCountChange(-price)
                     this.props.removeDisplayMat({
                         id: id
                     });
@@ -27,6 +28,11 @@ class MatCard extends Component {
                     this.setState({
                         checked: !this.state.checked
                     })
+                    if(!this.state.checked){
+                        this.props.onSumCountChange(price)
+                    } else {
+                        this.props.onSumCountChange(-price)
+                    }
                 } 
 
         return(

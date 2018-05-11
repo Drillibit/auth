@@ -6,7 +6,7 @@ const Component = () => {
     return(
         <footer className="menu_main">
             <div className="footer">
-                <p>V-1.1 (beta)</p>
+                <p>V-1.2 (beta)</p>
                 <p>&copy; Ivan Baranov 2018</p>
             </div>
         </footer>

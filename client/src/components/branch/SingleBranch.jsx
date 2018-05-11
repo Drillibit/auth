@@ -61,7 +61,8 @@ class SingleBranch extends Component {
         let mat = {
             id: uuid(),
             name: this.state.material.name,
-            price: calculate(data, state)
+            price: calculate(data, state),
+            checked: false
         };
         this.props.dispatch(addDisplayMat(mat));
     };
